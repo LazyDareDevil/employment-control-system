@@ -29,6 +29,7 @@ Main repository which contains all project components.
   - Azure IoT Hub,
   - AWS,
   - BLE,
+  - MQTT,
   - Node-RED,
   - micro Python(?),
   - ...
@@ -50,7 +51,6 @@ Main repository which contains all project components.
 - Бусел Владислав
 - Крылова Ольга
 - Николаева Ирина
-- Павлова Екатерина
 
 ## Распределение по ролям:
 
@@ -69,7 +69,6 @@ Main repository which contains all project components.
   - Аскар
 ### WEB, клиент-сервер (разработка):
   - Ольга
-  - Екатерина
     
 ## Вопросы и поддержка:
 
