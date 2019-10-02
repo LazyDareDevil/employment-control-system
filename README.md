@@ -51,6 +51,7 @@ Main repository which contains all project components.
 - Бусел Владислав
 - Крылова Ольга
 - Николаева Ирина
+- Шишкин Валентин
 
 ## Распределение по ролям:
 
@@ -66,7 +67,7 @@ Main repository which contains all project components.
 ### Анализ данных (разработка):
   - Владислав
   - Михаил
-  - Аскар
+  - Валентин
 ### WEB, клиент-сервер (разработка):
   - Ольга
     
