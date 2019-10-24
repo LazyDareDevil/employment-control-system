@@ -19,8 +19,8 @@ Main repository which contains all project components.
 ## Проект:
 
 - Интернет вещей (IoT)
-- Анализ данных
-- WEB-app, клиент-серверная часть
+- Анализ данных, серверная часть
+- WEB-app, клиентская часть
 
 ## Технологии:
 
@@ -31,10 +31,11 @@ Main repository which contains all project components.
   - BLE,
   - MQTT,
   - Node-RED,
-  - micro Python(?),
   - ...
   
 - Анализ данных
+  - Django,
+  - Python 3.7,
   - ...
   
 - WEB-app, клиент-серверная часть
@@ -64,11 +65,11 @@ Main repository which contains all project components.
 ### IoT (разработка):
   - Ирина
   - Аскар
-### Анализ данных (разработка):
+  - Валентин
+### Анализ данных, сервер (разработка):
   - Владислав
   - Михаил
-  - Валентин
-### WEB, клиент-сервер (разработка):
+### WEB (разработка):
   - Ольга
     
 ## Вопросы и поддержка:
