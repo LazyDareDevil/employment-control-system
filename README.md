@@ -27,14 +27,14 @@ Main repository which contains all project components.
 - Интернет вещей (IoT)
   - Ubuntu (Rasberry PI),
   - Azure IoT Hub,
-  - AWS,
   - BLE,
   - MQTT,
   - Node-RED,
-  - micro Python(?),
   - ...
   
-- Анализ данных
+- Анализ данных + backend
+  - Python 3.7
+  - Django
   - ...
   
 - WEB-app, клиент-серверная часть
@@ -64,10 +64,10 @@ Main repository which contains all project components.
 ### IoT (разработка):
   - Ирина
   - Аскар
+  - Валентин
 ### Анализ данных (разработка):
   - Владислав
   - Михаил
-  - Валентин
 ### WEB, клиент-сервер (разработка):
   - Ольга
     
