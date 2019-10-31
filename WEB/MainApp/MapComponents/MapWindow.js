@@ -66,7 +66,7 @@ export default class MapWindow extends Component {
                 </View>
 
                 <View style={{flex: 5, justifyContent: 'center', alignItems: 'center',
-                            backgroundColor: 'white'}}>
+                        backgroundColor: 'white'}}>
 
                     <Map workspaceNumber={this.props.workspaceNumber} 
                         changeWorkspace={this.props.changeWorkspace}
