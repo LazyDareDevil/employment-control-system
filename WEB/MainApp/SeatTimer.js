@@ -11,6 +11,9 @@ export default class SeatTimer extends Component {
         timerOn: false,
         timerStart: 0,
         timerTime: 0,
+        // timerOn: true,
+        // timerTime: this.state.timerTime,
+        // timerStart: Date.now() - this.state.timerTime
     }
 
     startTimer = () => {
@@ -48,12 +51,13 @@ export default class SeatTimer extends Component {
 
     render() {
         const { timerTime } = this.state
+        // this.startTimer()
         return(
             <View style={styles.mainView}> 
                 <View style={[ {flex: 1}, styles.block ]}>
-                    <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '75%'}}
-                            onPress={() => this.startTimer()}>
-                        <Text style={styles.edgeBlockText}>Start working</Text>
+                    <Button full disabled style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '75%'}}>
+                            
+                        <Text style={styles.edgeBlockText}>Your time</Text>
                     </Button>
                 </View>
 
@@ -71,7 +75,9 @@ export default class SeatTimer extends Component {
                         <Text style={styles.edgeBlockText}>Leave workspace</Text>
                     </Button>
                 </View>
+                {/* {this.startTimer()} */}
             </View>
+            
         )
     }
 }

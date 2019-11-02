@@ -8,19 +8,22 @@ export default class ParameterButton extends Component {
     }
 
     setOpacity = index => {
-        if (this.props.chosenParams[index])
-            return 0.5
-        else return 1
+        return this.props.chosenParams[index] ? 0.7 : 1
+    }
+
+    setIcon = index => {
+        return this.props.chosenParams[index] ? 'remove-circle-outline' : 'add-circle'
     }
 
     render() {
         name = this.props.name.toString()
         const {index} = this.props
+
         return(
             <TouchableHighlight onPress={() => this.props.changeChosenParams(index)} 
                                 underlayColor='transparent'>
                 <View style={[styles.button, {opacity: this.setOpacity(index)}]}>
-                    <Icon style={{color: 'white', fontSize: 50}} name='add-circle' />
+                    <Icon style={{color: 'white', fontSize: 50}} name={this.setIcon(index)} />
                     <Text style={{color: 'white', fontSize: 12, fontFamily: 'roboto-light'}}>
                         {name}
                     </Text>

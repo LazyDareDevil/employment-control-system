@@ -23,7 +23,7 @@ export default class MapWindow extends Component {
     setButtonText = () => {
         if (!this.state.isSeatChosen) {
             if (this.state.seatNumber === null)
-                return 'Take place'
+                return 'Long press to choose'
                 else return ('Take place ' + this.state.seatNumber)
         } 
     }
@@ -31,11 +31,11 @@ export default class MapWindow extends Component {
     takePlacePressed = () => {
         if (this.state.seatNumber === null) 
             alert("Chose workspace please!")
-        else this.props.changeWorkspace(this.state.seatNumber)
+        else this.props.changeWorkspace(this.state.seatNumber, false)
     }
 
     setBottomButton = () => {
-        if (this.props.workspaceNumber === null) {
+        if (this.props.workspaceNumber === null && this.props.areParamsSelected) {
             return (
                 <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '75%'}} 
                         onPress={() => this.takePlacePressed()}>
@@ -44,12 +44,12 @@ export default class MapWindow extends Component {
                     </Text>
                 </Button>
             )
-        } else {
+        } else if (this.props.areParamsSelected && !this.props.isWorkspaceChosen) {
             return (
                 <Button style={styles.anotherPlaceButton}
-                        onPress={() => this.props.changeWorkspace(null)}>
+                        onPress={() => this.props.changeWorkspace(this.state.seatNumber, true)}>
                     <Text style={styles.buttonText}>
-                        Choose another
+                        Switch on
                     </Text>
                 </Button>
             )
@@ -65,14 +65,14 @@ export default class MapWindow extends Component {
                     </Button>
                 </View>
 
-                <View style={{flex: 5, justifyContent: 'center', alignItems: 'center',
-                        backgroundColor: 'white'}}>
+                <View style={{flex: 5, justifyContent: 'center', alignItems: 'center'}}>
 
                     <Map workspaceNumber={this.props.workspaceNumber} 
                         changeWorkspace={this.props.changeWorkspace}
                         setLocalSeat={this.setLocalSeat}
                         avialableSeats={this.state.avialableSeats}
-                        areParamsSelected={this.props.areParamsSelected}/>
+                        areParamsSelected={this.props.areParamsSelected}
+                        isWorkspaceChosen={this.props.isWorkspaceChosen}/>
         
                 </View>
 

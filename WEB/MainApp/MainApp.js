@@ -27,17 +27,21 @@ export default class MainApp extends Component {
         })
     }
 
-    changeWorkspace = num => {
+    changeWorkspace = (num, switchFlag) => {
         if (num !== null) {
             this.setState({
                 workspaceNumber: num,
-                isWorkspaceChosen: true,
-                window: 'workspace'
             })
         } else {
             this.setState({
                 workspaceNumber: null,
                 isWorkspaceChosen: false,
+            })
+        }
+        if (switchFlag) {
+            this.setState({
+                isWorkspaceChosen: true,
+                window: 'workspace'
             })
         }
     }
@@ -65,7 +69,8 @@ export default class MainApp extends Component {
         } else if (this.state.window === 'map') {
             return <MapWindow workspaceNumber={this.state.workspaceNumber} 
                                 changeWorkspace={this.changeWorkspace}
-                                areParamsSelected={this.state.areParamsSelected}/>
+                                areParamsSelected={this.state.areParamsSelected}
+                                isWorkspaceChosen={this.state.isWorkspaceChosen}/>
         } else if (this.state.window === 'settings') {
             return <Settings checkExit={this.props.checkExit}/>
         }
@@ -82,7 +87,8 @@ export default class MainApp extends Component {
 
                 {this.setMainWindow()}
 
-                <FooterMenu changeWindow={this.changeWindow} currentState={this.state.window} />
+                <FooterMenu changeWindow={this.changeWindow} currentState={this.state.window}
+                            isWorkspaceChosen={this.state.isWorkspaceChosen} />
             </Container>
         );
     }
