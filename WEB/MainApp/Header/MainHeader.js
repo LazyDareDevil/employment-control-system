@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
 import { Icon, Text } from 'native-base'
+import headerStyles from './HeaderStyles'
 
 export default class MainHeader extends Component {
     constructor(props) {
@@ -35,37 +36,37 @@ export default class MainHeader extends Component {
     }
 }
 
-const headerStyles = StyleSheet.create({
-    header: {
-        backgroundColor: 'rgba(35, 71, 152, 1.0)',
-        height: '10%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
+// const headerStyles = StyleSheet.create({
+//     header: {
+//         backgroundColor: 'rgba(35, 71, 152, 1.0)',
+//         height: '10%',
+//         flexDirection: 'row',
+//         justifyContent: 'space-between',
+//         alignItems: 'center'
+//     },
 
-    left: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: '5%'
-    },
+//     left: {
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         marginLeft: '5%'
+//     },
 
-    right: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginRight: '5%'
-    },
+//     right: {
+//         flexDirection: 'row',
+//         justifyContent: 'space-between',
+//         alignItems: 'center',
+//         marginRight: '5%'
+//     },
 
-    elem: {
-        alignItems: 'center',
-        marginBottom: '5%',
-        marginRight: '5%',
-        marginLeft: '3%'
-    },
+//     elem: {
+//         alignItems: 'center',
+//         marginBottom: '5%',
+//         marginRight: '5%',
+//         marginLeft: '3%'
+//     },
 
-    text: {
-        color: 'white',
-        fontFamily: 'roboto-light'
-    }
-})
+//     text: {
+//         color: 'white',
+//         fontFamily: 'roboto-light'
+//     }
+// })

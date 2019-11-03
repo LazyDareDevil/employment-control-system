@@ -21,7 +21,7 @@ export default class Map extends Component {
     }
 
     setSeat = num => {
-        if (this.props.areParamsSelected) {
+        if (this.props.areParamsSelected && !this.props.isWorkspaceChosen) {
             if (this.props.avialableSeats.indexOf(num) !== -1) {
                 this.setState({
                     chosenSeat: num

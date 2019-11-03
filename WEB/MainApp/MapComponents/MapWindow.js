@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {View} from 'react-native'
 import {Button, Icon, Text} from 'native-base'
 import Map from './Map'
-import styles from './mapWindowStyles'
+import styles from './MapWindowStyles'
 
 export default class MapWindow extends Component {
     constructor(props){
