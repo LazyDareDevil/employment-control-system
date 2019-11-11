@@ -12,14 +12,18 @@ const headerStyles = StyleSheet.create({
     left: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: '5%'
+        marginLeft: '3%'
     },
 
     right: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        // flexDirection: 'row',
+        // justifyContent: 'space-between',
+        // alignItems: 'center',
+        justifyContent: 'center',
         alignItems: 'center',
-        marginRight: '5%'
+
+        marginRight: '3%',
+        // maxWidth: '50%'
     },
 
     elem: {
@@ -31,7 +35,8 @@ const headerStyles = StyleSheet.create({
 
     text: {
         color: 'white',
-        fontFamily: 'roboto-light'
+        fontFamily: 'roboto-light',
+        fontSize: 15
     }
 })
 

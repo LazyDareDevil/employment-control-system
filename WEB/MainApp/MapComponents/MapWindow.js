@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
-import {Button, Icon, Text} from 'native-base'
+import {Button, Icon, Text, Container} from 'native-base'
 import Map from './Map'
 import styles from './MapWindowStyles'
+import MapBottomButtons from './MapBottomButtons'
 
 export default class MapWindow extends Component {
     constructor(props){
@@ -20,52 +21,22 @@ export default class MapWindow extends Component {
         })
     }
 
-    setButtonText = () => {
-        if (!this.state.isSeatChosen) {
-            if (this.state.seatNumber === null)
-                return 'Long press to choose'
-                else return ('Take place ' + this.state.seatNumber)
-        } 
-    }
-
     takePlacePressed = () => {
         if (this.state.seatNumber === null) 
             alert("Chose workspace please!")
         else this.props.changeWorkspace(this.state.seatNumber, false)
     }
 
-    setBottomButton = () => {
-        if (this.props.workspaceNumber === null && this.props.areParamsSelected) {
-            return (
-                <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '75%'}} 
-                        onPress={() => this.takePlacePressed()}>
-                    <Text style={styles.buttonText}>
-                        {this.setButtonText()}
-                    </Text>
-                </Button>
-            )
-        } else if (this.props.areParamsSelected && !this.props.isWorkspaceChosen) {
-            return (
-                <Button style={styles.anotherPlaceButton}
-                        onPress={() => this.props.changeWorkspace(this.state.seatNumber, true)}>
-                    <Text style={styles.buttonText}>
-                        Switch on
-                    </Text>
-                </Button>
-            )
-        }
-    }
-
     render() {
         return(
-            <View style={{flex: 7, backgroundColor: '#F0FFFF' }}>
+            <Container style={{flex: 7, backgroundColor: 'rgba(211, 211, 211, 0.4)' }}>
                 <View style={styles.topBlock}>
                     <Button transparent icon style={{height: '100%'}}>
                         <Icon name='navigate' style={{color: 'rgba(39, 171, 227, 1)', fontSize: 35}} />
                     </Button>
                 </View>
 
-                <View style={{flex: 5, justifyContent: 'center', alignItems: 'center'}}>
+                <View style={{flex: 5, justifyContent: 'center', alignContent: 'center'}}>
 
                     <Map workspaceNumber={this.props.workspaceNumber} 
                         changeWorkspace={this.props.changeWorkspace}
@@ -76,11 +47,17 @@ export default class MapWindow extends Component {
         
                 </View>
 
-                <View style={styles.bottomBlock}>
-                    {this.setBottomButton()}
-                </View>
-            </View>
+                <MapBottomButtons workspaceNumber={this.props.workspaceNumber}
+                                    areParamsSelected={this.props.areParamsSelected}
+                                    isWorkspaceChosen={this.props.isWorkspaceChosen}
+                                    seatNumber={this.state.seatNumber}
+                                    takePlacePressed={this.takePlacePressed}
+                                    changeWorkspace={this.props.changeWorkspace} />
+            </Container>
         );
     }
 }
+
+
+
 

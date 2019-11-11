@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { Text, Button } from 'native-base'
+import { Text, Button, Container } from 'native-base'
 import timerStyles from './TimerStyles'
 
 export default class SeatTimer extends Component {
@@ -11,7 +11,7 @@ export default class SeatTimer extends Component {
     render() {
         const { timerTime } = this.props
         return(
-            <View style={timerStyles.mainView}> 
+            <Container style={timerStyles.mainView}> 
                 <View style={[ {flex: 1}, timerStyles.block ]}>
                     <Button full disabled style={timerStyles.yourTimeButton}>
                             
@@ -29,11 +29,11 @@ export default class SeatTimer extends Component {
 
                 <View style={[ {flex: 1}, timerStyles.block ]}>
                     <Button style={timerStyles.leaveButton}
-                            onPress={() => this.props.leaveButtonPressed()}>
+                            onPressIn={() => this.props.leaveButtonPressed()}>
                         <Text style={timerStyles.edgeBlockText}>Leave workspace</Text>
                     </Button>
                 </View>
-            </View>
+            </Container>
             
         )
     }

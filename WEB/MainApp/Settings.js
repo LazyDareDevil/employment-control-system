@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Alert } from 'react-native'
-import { Button, Text } from 'native-base'
+import { Button, Text, Container } from 'native-base'
 
 export default class Workspace extends Component {
     constructor(props){
@@ -24,28 +24,28 @@ export default class Workspace extends Component {
     render() {
         const {checkExit} = this.props
         return(
-            <View style={{flex: 12, backgroundColor: '#F0FFFF'}}>
+            <Container style={{flex: 12, backgroundColor: 'rgba(211, 211, 211, 0.4)'}}>
                 <View style={{flex: 1}}></View>
                 <View style={styles.mainView}>
               
-                        <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)'}}>
+                        <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '15%'}}>
                             <Text style={styles.text}>View history</Text>
                         </Button>
-                        <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)'}}>
+                        <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '15%'}}>
                             <Text style={styles.text}>Set default parameters</Text>
                         </Button>
-                        <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)'}}>
+                        <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '15%'}}>
                             <Text style={styles.text}>Sth else</Text>
                         </Button>
 
-                        <Button style={{backgroundColor: 'rgba(229, 38, 37, 1)'}}
+                        <Button style={{backgroundColor: 'rgba(229, 38, 37, 1)', height: '15%'}}
                                 onPress={() => checkExit(true)}>
                             <Text style={styles.text}>Exit</Text>
                         </Button>
                   
                 </View>
                 <View style={{flex: 1}}></View>
-            </View>
+            </Container>
         );
     }
 }

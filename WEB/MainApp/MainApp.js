@@ -18,6 +18,7 @@ export default class MainApp extends Component {
             workspaceNumber: null,
             isWorkspaceChosen: false,
             areParamsSelected: false,
+            chosenParameters: [false, false, false, false],
 
             timerOn: false,
             timerStart: 0,
@@ -57,7 +58,7 @@ export default class MainApp extends Component {
             this.setState({
                 timerTime: Date.now() - this.state.timerStart
             });
-        }, 10);
+        }, 1000);
     }
 
     leaveButtonPressed = () => {
@@ -93,13 +94,28 @@ export default class MainApp extends Component {
         }
     }
 
+    changeChosenParams = index => {
+        var array = this.state.chosenParameters
+        if (!array[index]) {
+            array[index] = true
+        } else array[index] = false
+        this.setState({
+            chosenParameters: array
+        })
+    }
+
     setMainWindow = () => {
         if (this.state.window === 'workspace') {
-            if (this.state.isWorkspaceChosen) 
-                return <SeatTimer leaveButtonPressed={this.leaveButtonPressed}
-                                    timerTime={this.state.timerTime}
-                                    formatTime={this.formatTime}/>
-            else return <WorkspaceParameters setParamsSelected={this.setParamsSelected}/>
+            // if (this.state.isWorkspaceChosen) 
+            //     return <SeatTimer leaveButtonPressed={this.leaveButtonPressed}
+            //                         timerTime={this.state.timerTime}
+            //                         formatTime={this.formatTime}/>
+            // else return <WorkspaceParameters setParamsSelected={this.setParamsSelected}/>
+            return <WorkspaceParameters setParamsSelected={this.setParamsSelected}
+                                        chosenParameters={this.state.chosenParameters}
+                                        changeChosenParams={this.changeChosenParams}
+                                        isWorkspaceChosen={this.state.isWorkspaceChosen}
+                                        leaveButtonPressed={this.leaveButtonPressed}/>
         } else if (this.state.window === 'map') {
             return <MapWindow workspaceNumber={this.state.workspaceNumber} 
                                 changeWorkspace={this.changeWorkspace}
@@ -117,7 +133,8 @@ export default class MainApp extends Component {
                     <Title style={styles.title}>APP NAME</Title>
                 </Header>
 
-                <MainHeader login={this.props.login} workspaceNumber={this.state.workspaceNumber}/>
+                <MainHeader login={this.props.login} workspaceNumber={this.state.workspaceNumber}
+                            timerOn={this.state.timerOn} timerTime={this.formatTime(this.state.timerTime)}/>
 
                 {this.setMainWindow()}
 

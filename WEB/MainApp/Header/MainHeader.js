@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {StyleSheet, View} from 'react-native'
+import React, { Component } from 'react'
+import { View } from 'react-native'
 import { Icon, Text } from 'native-base'
 import headerStyles from './HeaderStyles'
 
@@ -15,58 +15,39 @@ export default class MainHeader extends Component {
         else return workspaceNumber.toString()
     }
 
+    setTimer = (timerOn) => {
+        if (timerOn) {
+            return(
+                <View style={headerStyles.left}>
+                    <Icon style={{color: 'white'}} name='alarm' />
+                    <Text style={headerStyles.text}>
+                        {this.props.timerTime}
+                    </Text>
+                </View>
+            )
+        }
+    }
+    
     render() {
         const {login} = this.props
         return(
             <View style={headerStyles.header}>
                 <View style={headerStyles.left}>
                     <Icon style={{color: 'white'}} name='tv' />
-                    <Text style={[ headerStyles.text, {fontSize: 14} ]}>
+                    <Text style={headerStyles.text}>
                         {this.setWorkspaceText()}
                     </Text>
                 </View>
+
+                {this.setTimer(this.props.timerOn)}
+
                 <View style={headerStyles.right}>
-                    <Text style={[ headerStyles.text, {marginRight: '5%', fontSize: 15} ]}>
-                        {login.toString()}
+                    <Icon style={{ color: 'white'}} name='contact' />
+                    <Text style={[ headerStyles.text]}>
+                        {login.toString().length < 15 ? login : login.substr(0, 12) + '...'}
                     </Text>
-                    <Icon style={{ color: 'white', fontSize: 40}} name='contact' />
                 </View>
             </View>
         );
     }
 }
-
-// const headerStyles = StyleSheet.create({
-//     header: {
-//         backgroundColor: 'rgba(35, 71, 152, 1.0)',
-//         height: '10%',
-//         flexDirection: 'row',
-//         justifyContent: 'space-between',
-//         alignItems: 'center'
-//     },
-
-//     left: {
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         marginLeft: '5%'
-//     },
-
-//     right: {
-//         flexDirection: 'row',
-//         justifyContent: 'space-between',
-//         alignItems: 'center',
-//         marginRight: '5%'
-//     },
-
-//     elem: {
-//         alignItems: 'center',
-//         marginBottom: '5%',
-//         marginRight: '5%',
-//         marginLeft: '3%'
-//     },
-
-//     text: {
-//         color: 'white',
-//         fontFamily: 'roboto-light'
-//     }
-// })
