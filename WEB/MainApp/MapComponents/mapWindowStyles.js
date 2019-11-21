@@ -17,12 +17,14 @@ const styles = StyleSheet.create({
 
     takeButton: {
         backgroundColor: 'rgba(39, 171, 227, 1)',
-        height: '75%'
+        height: '75%',
+        borderRadius: 8
     },
 
     anotherPlaceButton: {
         backgroundColor: 'rgba(229, 38, 37, 1)',
-        height: '75%'
+        height: '75%',
+        borderRadius: 8
     },
 
     buttonText: {

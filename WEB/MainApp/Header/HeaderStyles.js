@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native'
 
 const headerStyles = StyleSheet.create({
     header: {
-        backgroundColor: 'rgba(35, 71, 152, 1.0)',
+        backgroundColor: 'rgba(10, 61, 179, 1.0)',
         height: '10%',
         flexDirection: 'row',
         justifyContent: 'space-between',

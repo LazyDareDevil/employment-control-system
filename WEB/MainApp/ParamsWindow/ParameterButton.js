@@ -41,10 +41,11 @@ export default class ParameterButton extends Component {
 const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
-        backgroundColor: 'rgba(35, 71, 152, 1.0)',
+        backgroundColor: 'rgba(10, 61, 179, 1.0)',
         justifyContent: 'space-around',
-        borderRadius: 5,
-        height: '35%',
+        borderRadius: 8,
+        height: '32%',
         aspectRatio: 1/1,
+        
     }
 })

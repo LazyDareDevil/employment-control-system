@@ -10,7 +10,7 @@ export default class FooterMenu extends Component {
         var state = this.props.currentState
         if (state === buttonName)
             return ({color: 'rgba(39, 171, 227, 1)'})
-        else return ({color: 'rgba(35, 71, 152, 1.0)'})
+        else return ({color: 'rgba(10, 61, 179, 1.0)'})
     }
 
     textStyle = (buttonName) => {

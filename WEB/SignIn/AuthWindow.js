@@ -48,15 +48,13 @@ export default class AuthWindow extends Component {
                         loginInput={this.setLogin}
                         passwordInput={this.setPassword}
                     />
-                    <View style={styles.signInBtn}>
-                        <Button style={{backgroundColor: 'rgba(229, 38, 37, 1)'}}
-                            // title='SIGN IN' 
-                            // color='white'
-                            onPress={() =>  checkData(this.handleButtonClick(), this.state.login) }
+                    {/* <View style={styles.signInBtn}> */}
+                        <Button style={styles.signInBtn}
+                                onPress={() =>  checkData(this.handleButtonClick(), this.state.login) }
                         >
                             <Text style={{color: 'white', fontFamily: 'roboto-light'}}>Sign in</Text>
                         </Button>
-                    </View>
+                    {/* </View> */}
                 </View>
             </KeyboardAvoidingView>
         );

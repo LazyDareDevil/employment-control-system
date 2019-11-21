@@ -8,7 +8,7 @@ export default class BottomButtom extends Component {
         var {isWorkspaceChosen} = this.props
         if (!isWorkspaceChosen) {
             return(
-                <Button style={{backgroundColor: 'rgba(229, 38, 37, 1)', height: '75%'}}
+                <Button style={{backgroundColor: 'rgba(229, 38, 37, 1)', height: '75%', borderRadius: 8}}
                         onPress={() => this.props.setParamsSelected(true)}>
                     <Text style={styles.edgeBlockText}>Select workspace</Text>
                 </Button>

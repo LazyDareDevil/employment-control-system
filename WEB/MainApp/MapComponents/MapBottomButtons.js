@@ -16,7 +16,7 @@ export default class MapBottomButtons extends Component {
         if (workspaceNumber === null && areParamsSelected) {
             return (
                 <View style={styles.bottomBlock}>
-                    <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '75%'}} 
+                    <Button style={styles.takeButton} 
                             onPress={() => this.props.takePlacePressed()}>
                         <Text style={styles.buttonText}>
                             {seatNumber === null ? 'Press to choose' : 'Take place ' + seatNumber}
@@ -27,7 +27,7 @@ export default class MapBottomButtons extends Component {
         } else if (areParamsSelected && !isWorkspaceChosen) {
             return (
                 <View style={styles.bottomBlock}>
-                    <Button style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '75%'}}
+                    <Button style={styles.takeButton}
                             onPress={() => this.props.changeWorkspace(this.props.seatNumber, true)}>
                         <Text style={styles.buttonText}>
                             Switch on
