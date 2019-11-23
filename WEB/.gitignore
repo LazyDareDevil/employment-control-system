@@ -7,5 +7,5 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
-web-build/
+# web-build/
 web-report/

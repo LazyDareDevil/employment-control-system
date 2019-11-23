@@ -20,8 +20,29 @@ export default class App extends Component {
         this.setState({ fontLoaded: true })
     }
 
-    checkData = (flag, someLogin) => {
+    checkData = (flag, someLogin, somePassword) => {
         if (flag) {
+            // fetch('url', {
+            //     method: 'POST',
+            //     headers: {
+            //         Accept: 'application/json',
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({
+            //         username: someLogin,
+            //         password: somePassword,
+            //     }),
+            // })
+            // .then((response) => response.json())
+            // .then((responseJson) => {
+            //     return responseJson.acception;
+            // })
+            // .catch((error) => {
+            //     // console.error(error);
+            //     alert(error)
+            // });
+
+
             this.setState({ 
                 renderView: 1,
                 login: someLogin
