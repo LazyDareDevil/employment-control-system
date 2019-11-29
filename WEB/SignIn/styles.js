@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     
     signWindow: {
         width: '80%',
+        maxWidth: 300,
         height: 'auto',
         flexDirection: 'column',
         alignSelf: 'center',
@@ -25,7 +26,9 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         borderRadius: 5,
         padding: 20,
-        fontFamily: 'roboto-light'
+        fontFamily: 'roboto-light',
+        shadowRadius: 5,
+        shadowOpacity: 1
     },
     
     authText: {
@@ -33,7 +36,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         alignSelf: 'center',
         marginVertical: 20,
-        fontFamily: 'roboto-light'
+        fontFamily: 'roboto-light',
+        textShadowRadius: 5,
+        textShadowColor: 'black'
+        // shadowRadius: 3,
+        // shadowOpacity: 1
     },
     
     form: {
@@ -49,11 +56,12 @@ const styles = StyleSheet.create({
         height: '40%',
         backgroundColor: 'white',
         borderRadius: 5,
-        shadowRadius: 3,
+        shadowRadius: 10,
+        shadowOpacity: 0.5,
         fontFamily: 'roboto-light',
         fontSize: 15,
-        borderWidth: 3,
-        borderColor: 'rgba(10, 61, 179, 1.0)',
+        marginBottom: 10,
+        
     },
     
     signInBtn: {
@@ -64,7 +72,9 @@ const styles = StyleSheet.create({
         minHeight: 50,
         height: '12%',
         width: '35%',
-        borderRadius: 100
+        borderRadius: 100,
+        shadowRadius: 10,
+        shadowOpacity: 0.5,
     }
 });
 

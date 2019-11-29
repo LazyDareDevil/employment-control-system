@@ -3,27 +3,27 @@ import {StyleSheet} from 'react-native'
 const headerStyles = StyleSheet.create({
     header: {
         backgroundColor: 'rgba(10, 61, 179, 1.0)',
-        height: '10%',
+        height: '15%',
+        maxHeight: 80,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        // marginBottom: '2%'
+        // shadowRadius: 5
     },
 
     left: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: '3%'
+        marginLeft: '3%',
+        marginBottom: '1%'
     },
 
     right: {
-        // flexDirection: 'row',
-        // justifyContent: 'space-between',
-        // alignItems: 'center',
         justifyContent: 'center',
         alignItems: 'center',
-
+        marginBottom: '1%',
         marginRight: '3%',
-        // maxWidth: '50%'
     },
 
     elem: {

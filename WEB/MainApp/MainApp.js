@@ -122,16 +122,16 @@ export default class MainApp extends Component {
                                 areParamsSelected={this.state.areParamsSelected}
                                 isWorkspaceChosen={this.state.isWorkspaceChosen}/>
         } else if (this.state.window === 'settings') {
-            return <Settings checkExit={this.props.checkExit}/>
+            return <Settings checkExit={this.props.checkExit} timerOn={this.state.timerOn}/>
         }
     }
 
     render() {
         return (
             <Container>
-                <Header transparent style={styles.header}>
+                {/* <Header transparent style={styles.header}>
                     <Title style={styles.title}>APP NAME</Title>
-                </Header>
+                </Header> */}
 
                 <MainHeader login={this.props.login} workspaceNumber={this.state.workspaceNumber}
                             timerOn={this.state.timerOn} timerTime={this.formatTime(this.state.timerTime)}/>

@@ -4,8 +4,11 @@ const styles = StyleSheet.create({
     topBlock: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end',
-        alignItems: 'center'
+        // justifyContent: 'flex-end',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        shadowRadius: 1,
+        shadowOpacity: 0.1
     },
 
     bottomBlock: {
@@ -30,6 +33,18 @@ const styles = StyleSheet.create({
     buttonText: {
         color: 'white',
         fontFamily: 'roboto-light'
+    },
+
+    seatInput: {
+        backgroundColor: 'white', 
+        height: '75%', 
+        borderRadius: 8, 
+        width: '20%',
+        maxWidth: 50,
+        justifyContent: 'center',
+        textAlign: 'center',
+        paddingHorizontal: 7,
+        color: 'rgba(10, 61, 179, 1.0)',
     }
 })
 

@@ -17,13 +17,22 @@ const styles = StyleSheet.create({
         flex: 5,
         width: '80%',
         alignSelf: 'center',
-        alignItems: 'baseline',
-        flexDirection: 'row',
-        alignContent: 'space-around',
+        alignItems: 'center',
+        flexDirection: 'column',
+        alignContent: 'center',
         justifyContent: 'space-around',
-        flexWrap: 'wrap'
-    }
+        flexWrap: 'wrap',
+        // backgroundColor: 'yellow'
+    },
 
+    button: {
+        backgroundColor: 'rgba(229, 38, 37, 1)', 
+        height: '75%', 
+        borderRadius: 8, 
+        width: '60%',
+        justifyContent: 'center',
+        maxWidth: 300
+    }
 })
 
 export default styles

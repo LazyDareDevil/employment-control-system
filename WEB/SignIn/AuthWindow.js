@@ -16,17 +16,17 @@ export default class AuthWindow extends Component {
 
     handleButtonClick = () => {
         // с проверкой
-        // if (this.state.login && this.state.password) {
-        //     this.setState({ correctData: true })
-        //     return true
-        // } else {
-        //     alert('wrong login or password')
-        //     return false
-        // }
+        if (this.state.login && this.state.password) {
+            this.setState({ correctData: true })
+            return true
+        } else {
+            alert('wrong login or password')
+            return false
+        }
 
         // без проверки на пустоту 
-        this.setState({ correctData: true })
-        return true
+        // this.setState({ correctData: true })
+        // return true
     }
 
     setLogin = val => {

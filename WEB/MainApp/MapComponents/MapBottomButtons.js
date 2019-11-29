@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { Button, Text } from 'native-base'
 import styles from './MapWindowStyles'
 
@@ -19,10 +19,11 @@ export default class MapBottomButtons extends Component {
                     <Button style={styles.takeButton} 
                             onPress={() => this.props.takePlacePressed()}>
                         <Text style={styles.buttonText}>
-                            {seatNumber === null ? 'Press to choose' : 'Take place ' + seatNumber}
+                            {seatNumber === null || isNaN(seatNumber) ? 'Choose number' : 'Take place ' + seatNumber}
                         </Text>
                     </Button>
                 </View>
+
             )
         } else if (areParamsSelected && !isWorkspaceChosen) {
             return (

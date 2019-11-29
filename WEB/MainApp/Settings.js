@@ -8,19 +8,35 @@ export default class Workspace extends Component {
     }
 
     confirmExit = () => {
-        Alert.alert(
-            'Are you sure?',
-            '',
-            [
-                {text: 'Yes', onPress: () => this.props.checkExit(true)},
-                {
-                    text: 'No', 
-                    onPress: () => this.props.checkExit(false), 
-                    style: 'cancel'
-                },
-            ],
-            {cancelable: false},
-        );
+        // for app
+        //
+        // if (!this.props.timerOn) {
+        //     Alert.alert(
+        //         'Are you sure?',
+        //         '',
+        //         [
+        //             {text: 'Yes', onPress: () => this.props.checkExit(true)},
+        //             {
+        //                 text: 'No', 
+        //                 onPress: () => this.props.checkExit(false), 
+        //                 style: 'cancel'
+        //             },
+        //         ],
+        //         {cancelable: true},
+        //     );
+        // } else {
+        //     alert('You should end your work!')
+        // }
+
+        // for web
+        //
+        if (!this.props.timerOn) {
+            if (confirm('Are you sure?')) {
+                this.props.checkExit(true)
+            }
+        } else {
+            alert('You should end your work!')
+        }
     }
 
     render() {
@@ -54,7 +70,8 @@ export default class Workspace extends Component {
 const styles = StyleSheet.create({
     mainView: {
         flex: 10,
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'flex-start'
     },
 
     text: {
@@ -66,10 +83,11 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: 'rgba(39, 171, 227, 1)', 
         height: '15%',
-        marginBottom: '5%',
+        marginBottom: '3%',
         width: '70%',
         justifyContent: 'center',
-        borderRadius: 8
+        borderRadius: 8,
+        maxWidth: 250
         // alignContent: 'center',
         // textAlignVertical: 'center'
     },
@@ -79,6 +97,7 @@ const styles = StyleSheet.create({
         height: '15%',
         width: '70%',
         justifyContent: 'center',
-        borderRadius: 100
+        borderRadius: 100,
+        maxWidth: 250
     }
 })

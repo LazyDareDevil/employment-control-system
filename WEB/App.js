@@ -8,7 +8,8 @@ export default class App extends Component {
     state = {
         renderView: 0,
         login: '',
-        fontLoaded: false
+        fontLoaded: false,
+        token: null
     };
 
     async componentDidMount() {
@@ -22,10 +23,12 @@ export default class App extends Component {
 
     checkData = (flag, someLogin, somePassword) => {
         if (flag) {
-            // fetch('url', {
+            // fetch('https://8a8cbf63.ngrok.io/api/login', {
+            //     mode: 'no-cors',
+            //     credentials: 'include',
             //     method: 'POST',
             //     headers: {
-            //         Accept: 'application/json',
+            //         // Accept: 'application/json',
             //         'Content-Type': 'application/json',
             //     },
             //     body: JSON.stringify({
@@ -33,15 +36,25 @@ export default class App extends Component {
             //         password: somePassword,
             //     }),
             // })
-            // .then((response) => response.json())
+            // .then((response) => {
+            //     console.log('response')
+            //     return response
+            // })
             // .then((responseJson) => {
-            //     return responseJson.acception;
+            //     console.log('response 2')
+            //     // let data = JSON.parse(responseJson).token
+            //     alert(responseJson.status + " " + responseJson.bodyUsed)
+            //     // if (data != null) {
+            //     //     this.setState({ 
+            //     //         renderView: 1,
+            //     //         login: someLogin,
+            //     //         token: data
+            //     //     })
+            //     // }
             // })
             // .catch((error) => {
-            //     // console.error(error);
-            //     alert(error)
+            //     alert('error: ' + error)
             // });
-
 
             this.setState({ 
                 renderView: 1,
@@ -70,3 +83,4 @@ export default class App extends Component {
         
     }
 }
+
