@@ -41,7 +41,8 @@ Main repository which contains all project components.
   - Python 3.7
   - NodeJS,
   - HTML,
-  - JSON,
+  - React-native,
+  - Expo
   - ...
 
 ## Команда:
