@@ -43,6 +43,8 @@ Main repository which contains all project components.
   - NodeJS,
   - HTML,
   - JSON,
+  - React-native,
+  - Expo
   - ...
 
 ## Команда:
