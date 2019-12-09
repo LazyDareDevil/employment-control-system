@@ -8,58 +8,57 @@ export default class App extends Component {
     state = {
         renderView: 0,
         login: '',
-        fontLoaded: false,
+        fontLoaded: true,
         token: null
     };
 
     async componentDidMount() {
         await Font.loadAsync({
-          'roboto-light': require('./assets/fonts/Roboto-Light.ttf'),
-          'Roboto_medium': require('./assets/fonts/Roboto-Medium.ttf')
+          'roboto-light': require('./assets/media/Roboto-Light.ttf'),
+          'Roboto_medium': require('./assets/media/Roboto-Medium.ttf')
         });
 
-        this.setState({ fontLoaded: true })
+        // this.setState({ fontLoaded: true })
     }
 
-    checkData = (flag, someLogin, somePassword) => {
+    checkData = async (flag, someLogin, somePassword) => {
         if (flag) {
-            // fetch('https://8a8cbf63.ngrok.io/api/login', {
-            //     mode: 'no-cors',
-            //     credentials: 'include',
-            //     method: 'POST',
-            //     headers: {
-            //         // Accept: 'application/json',
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({
-            //         username: someLogin,
-            //         password: somePassword,
-            //     }),
-            // })
-            // .then((response) => {
-            //     console.log('response')
-            //     return response
-            // })
-            // .then((responseJson) => {
-            //     console.log('response 2')
-            //     // let data = JSON.parse(responseJson).token
-            //     alert(responseJson.status + " " + responseJson.bodyUsed)
-            //     // if (data != null) {
-            //     //     this.setState({ 
-            //     //         renderView: 1,
-            //     //         login: someLogin,
-            //     //         token: data
-            //     //     })
-            //     // }
-            // })
-            // .catch((error) => {
-            //     alert('error: ' + error)
-            // });
-
-            this.setState({ 
-                renderView: 1,
-                login: someLogin
+            var targetUrl = 'http://127.0.0.1:8000/api/login/'
+            fetch(targetUrl, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "username": someLogin,
+                    "password": somePassword,
+                }),
             })
+            .then((response) => {
+                console.log(response)
+                return response.json()
+            })
+            .then((responseJson) => {
+                let token = responseJson.token
+                // console.log(response.token)
+
+                if (token != null) {
+                    this.setState({ 
+                        renderView: 1,
+                        login: someLogin,
+                        token: token
+                    })
+                }
+            })
+            .catch((error) => {
+                alert('error: ' + error)
+            });
+
+            // this.setState({ 
+            //     renderView: 1,
+            //     login: someLogin
+            // })
         }
     }
 

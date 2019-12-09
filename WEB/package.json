@@ -33,7 +33,7 @@
   },
   "rnpm": {
     "assets": [
-      "./assets/fonts"
+      "./assets/media"
     ]
   },
   "private": true

@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     
     form: {
         height: '30%',
-        color: 'rgba(0,0,0,0.3)',
         flexDirection: 'column',
         justifyContent: "space-between",
     },
