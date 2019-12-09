@@ -12,6 +12,9 @@ from rest_framework.response import Response
 from django.views.generic import TemplateView
 from django.shortcuts import render
 
+import json
+from django.http import JsonResponse
+
 def index(request):
     return render(request, "index.html")
 
@@ -19,19 +22,29 @@ def index(request):
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def login(request):
-    username = request.data.get("username")
-    password = request.data.get("password")
+    request_json = json.load(request)
+    username = request_json["username"]
+    password = request_json["password"]
     if username is None or password is None:
         return Response({'error': 'Please provide both username and password'},
                         status=HTTP_400_BAD_REQUEST)
-    user = authenticate(username=username, password=password)
-    if not user:
-        return Response({'error': 'Invalid Credentials'},
-                        status=HTTP_401_UNAUTHORIZED)
+    # user = authenticate(username=username, password=password)
+    # if not user:
+    #     print('here')
+    #     return Response({'error': 'Invalid Credentials'},
+    #                     status=HTTP_401_UNAUTHORIZED)
+    #
+    # token, _ = Token.objects.get_or_create(user=user)
 
-    token, _ = Token.objects.get_or_create(user=user)
-    return Response({'token': token.key},
-                    status=HTTP_200_OK)
+    # response_data = {
+    #     'token': 'abc'
+    # }
+    resp = JsonResponse({'token': 'abc'})
+    resp['Access-Control-Allow-Origin'] = '*'
+    resp["Access-Control-Allow-Headers"] = '*'
+    return resp
+    # return Response({'token': 'abc'},
+    #                 status=HTTP_200_OK)
 
 @csrf_exempt
 @api_view(["DELETE"])
