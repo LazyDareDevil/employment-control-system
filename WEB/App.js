@@ -8,8 +8,9 @@ export default class App extends Component {
     state = {
         renderView: 0,
         login: '',
-        fontLoaded: true,
-        token: null
+        fontLoaded: false,
+        token: null,
+        ngrokServer: ""
     };
 
     async componentDidMount() {
@@ -18,13 +19,14 @@ export default class App extends Component {
           'Roboto_medium': require('./assets/media/Roboto-Medium.ttf')
         });
 
-        // this.setState({ fontLoaded: true })
+        this.setState({ fontLoaded: true })
     }
 
-    checkData = async (flag, someLogin, somePassword) => {
+    checkData = async (flag, someLogin, somePassword, someServer) => {
         if (flag) {
-            var targetUrl = 'http://127.0.0.1:8000/api/login/'
-            fetch(targetUrl, {
+            var url = 'http://45d82ed4.ngrok.io/api/'
+            // var url = 'http://' + someServer + '.ngrok.io/api/'
+            fetch(url + 'login/', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -41,13 +43,13 @@ export default class App extends Component {
             })
             .then((responseJson) => {
                 let token = responseJson.token
-                // console.log(response.token)
 
                 if (token != null) {
                     this.setState({ 
                         renderView: 1,
                         login: someLogin,
-                        token: token
+                        token: token,
+                        ngrokServer: url
                     })
                 }
             })
@@ -64,11 +66,33 @@ export default class App extends Component {
 
     checkExit = flag => {
         if (flag) {
-            this.setState({
-                correctData: false,
-                login: '',
-                renderView: 0
+
+            fetch(this.state.ngrokServer + 'logout/', {
+                method: 'DELETE',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({"token": this.state.token}),
             })
+            .then((response) => {
+                if (response.status == 200) {
+                    this.setState({
+                        correctData: false,
+                        login: '',
+                        renderView: 0
+                    })
+                }
+            })
+            .catch((error) => {
+                alert('error: ' + error)
+            });
+
+            // this.setState({
+            //     correctData: false,
+            //     login: '',
+            //     renderView: 0
+            // })
         }
     }
 
@@ -76,7 +100,8 @@ export default class App extends Component {
 
         if (this.state.fontLoaded) {
             if (this.state.renderView === 1) {
-            return <MainApp login={this.state.login} checkExit={this.checkExit}/>
+            return <MainApp login={this.state.login} checkExit={this.checkExit}
+                            ngrokServer={this.state.ngrokServer} token={this.state.token}/>
             } else return <AuthWindow checkData={this.checkData}/>
         } else return null
         

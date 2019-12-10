@@ -10,6 +10,7 @@ export default class AuthWindow extends Component {
         this.state = {
             login: "",
             password: "",
+            server: "",
             correctData: false
         };
     }
@@ -37,6 +38,10 @@ export default class AuthWindow extends Component {
         this.setState({ password: val })
     }
 
+    setServer = val => {
+        this.setState({ server: val })
+    }
+
     render() {
         var checkData = this.props.checkData
         return (
@@ -47,9 +52,11 @@ export default class AuthWindow extends Component {
                     <Form 
                         loginInput={this.setLogin}
                         passwordInput={this.setPassword}
+                        serverInput={this.setServer}
                     />
                     <Button style={styles.signInBtn}
-                            onPress={() =>  checkData(this.handleButtonClick(), this.state.login, this.state.password) }
+                            onPress={() =>  checkData(this.handleButtonClick(), this.state.login, this.state.password,
+                                this.state.server) }
                     >
                         <Text style={{color: 'white', fontFamily: 'roboto-light'}}>Sign in</Text>
                     </Button>

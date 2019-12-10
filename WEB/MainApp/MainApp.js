@@ -19,6 +19,7 @@ export default class MainApp extends Component {
             isWorkspaceChosen: false,
             areParamsSelected: false,
             chosenParameters: [false, false, false, false],
+            avialableSeats: [],
 
             timerOn: false,
             timerStart: 0,
@@ -43,7 +44,28 @@ export default class MainApp extends Component {
                 isWorkspaceChosen: false,
             })
         }
-        if (switchFlag) this.startTimer()
+        if (switchFlag) {
+            fetch(this.props.ngrokServer + 'take_place/', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "token": this.props.token,
+                    "place": this.state.workspaceNumber
+                }),
+            })
+            .then((response) => {
+                if (response.status == 200) {
+                    this.startTimer()
+                }
+            })
+            .catch((error) => {
+                alert('error: ' + error)
+            });
+        } 
+        // this.startTimer()
     }
 
     startTimer = () => {
@@ -62,16 +84,45 @@ export default class MainApp extends Component {
     }
 
     leaveButtonPressed = () => {
-        alert( "Your time:\n" + this.formatTime(this.state.timerTime))
-        this.setState({ 
-            timerOn: false,
-            timerStart: 0,
-            timerTime: 0
-        });
-        clearInterval(this.timer);
+        fetch(this.props.ngrokServer + 'leave_place/', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "token": this.props.token,
+                "place": this.state.workspaceNumber,
+                "time": this.state.timerTime
+            }),
+        })
+        .then((response) => {
+            if (response.status == 200) {
+                alert(this.state.timerTime)
+                alert( "Your time:\n" + this.formatTime(this.state.timerTime))
+                this.setState({ 
+                    timerOn: false,
+                    timerStart: 0,
+                    timerTime: 0
+                });
+                clearInterval(this.timer);
 
-        this.changeWorkspace(null)
-        this.setParamsSelected(false)
+                this.changeWorkspace(null)
+                this.setParamsSelected(false)
+            }
+        })
+        .catch((error) => {
+            alert('error: ' + error)
+        });
+        // alert( "Your time:\n" + this.formatTime(this.state.timerTime))
+        // this.setState({ 
+        //     timerOn: false,
+        //     timerStart: 0,
+        //     timerTime: 0
+        // });
+        // clearInterval(this.timer);
+        // this.changeWorkspace(null)
+        // this.setParamsSelected(false)
     }
 
     formatTime = ms => {
@@ -83,10 +134,42 @@ export default class MainApp extends Component {
 
     setParamsSelected = flag => {
         if (flag) {
-            this.setState({
-                areParamsSelected: true,
-                window: 'map'
+            fetch(this.props.ngrokServer + 'get_workplaces/', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({"token": this.props.token}),
             })
+            .then((response) => {
+                console.log(response)
+                return response.json()
+            })
+            .then((responseJson) => {
+                let amount = responseJson.amount
+                let places = responseJson.places
+                let temp_array = []
+                for (let i = 1; i <= amount; i++) {
+                    if (places[i - 1][(i).toString()]) {
+                        temp_array.push(i)
+                    }
+                }
+                this.setState({
+                    avialableSeats: temp_array,
+                    areParamsSelected: true,
+                    window: 'map'
+                })
+            })
+            .catch((error) => {
+                alert('error: ' + error)
+            });
+
+
+            // this.setState({
+            //     areParamsSelected: true,
+            //     window: 'map'
+            // })
         } else {
             this.setState({
                 areParamsSelected: false
@@ -120,7 +203,8 @@ export default class MainApp extends Component {
             return <MapWindow workspaceNumber={this.state.workspaceNumber} 
                                 changeWorkspace={this.changeWorkspace}
                                 areParamsSelected={this.state.areParamsSelected}
-                                isWorkspaceChosen={this.state.isWorkspaceChosen}/>
+                                isWorkspaceChosen={this.state.isWorkspaceChosen}
+                                avialableSeats={this.state.avialableSeats}/>
         } else if (this.state.window === 'settings') {
             return <Settings checkExit={this.props.checkExit} timerOn={this.state.timerOn}/>
         }

@@ -1,0 +1,9 @@
+WEB/node_modules/**/*
+WEB/.expo/*
+WEB/npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*

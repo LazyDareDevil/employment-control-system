@@ -7,8 +7,7 @@ const headerStyles = StyleSheet.create({
         maxHeight: 80,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        // marginBottom: '2%'
+        alignItems: 'flex-end',
         // shadowRadius: 5
     },
 
@@ -16,13 +15,13 @@ const headerStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: '3%',
-        marginBottom: '1%'
+        marginBottom: '2%'
     },
 
     right: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: '1%',
+        marginBottom: '2%',
         marginRight: '3%',
     },
 

@@ -13,12 +13,12 @@ export default class TopMenu extends Component {
         if (this.props.areParamsSelected) {
             return (
                 <View style={styles.topBlock}>
-                    <TextInput style={styles.seatInput}
+                    {/* <TextInput style={styles.seatInput}
                                 placeholder='№'
                                 onChangeText={val => this.props.setLocalSeat(parseInt(val))}
                                 maxLength={1}
                                 editable={this.state.isEditable}
-                                />
+                                /> */}
                     <Button transparent icon style={{height: '100%'}}>
                         <Icon name='navigate' style={{color: 'rgba(39, 171, 227, 1)', fontSize: 35}} />
                     </Button>

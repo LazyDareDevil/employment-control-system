@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 20,
         alignSelf: 'center',
-        marginVertical: 20,
+        marginVertical: '5%',
         fontFamily: 'roboto-light',
         textShadowRadius: 5,
         textShadowColor: 'black'
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     },
     
     form: {
-        height: '30%',
+        // height: '30%',
         flexDirection: 'column',
         justifyContent: "space-between",
     },
@@ -52,19 +52,19 @@ const styles = StyleSheet.create({
     field: {
         paddingLeft: 20,
         minHeight: 50,
-        height: '40%',
+        height: '12%',
         backgroundColor: 'white',
         borderRadius: 5,
         shadowRadius: 10,
         shadowOpacity: 0.5,
         fontFamily: 'roboto-light',
         fontSize: 15,
-        marginBottom: 10,
+        marginBottom: '3%',
         
     },
     
     signInBtn: {
-        marginTop: 15,
+        marginTop: '3%',
         alignSelf: 'center',
         backgroundColor: 'rgba(229, 38, 37, 1)',
         justifyContent: 'center',

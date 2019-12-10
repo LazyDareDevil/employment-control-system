@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TextInput } from 'react-native';
 import styles from './styles'
 
-const Form = ({loginInput, passwordInput}) => (
+const Form = ({loginInput, passwordInput, serverInput}) => (
     <View style={styles.form}>
         <TextInput style={styles.field}
             placeholder={'login'} 
@@ -14,6 +14,10 @@ const Form = ({loginInput, passwordInput}) => (
             textContentType={'password'}
             onChangeText={val => passwordInput(val)}
             secureTextEntry={true}
+        />
+        <TextInput style={styles.field}
+            placeholder={'server'}
+            onChangeText={val => serverInput(val)}
         />
     </View>
 )

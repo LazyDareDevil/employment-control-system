@@ -10,33 +10,33 @@ export default class Workspace extends Component {
     confirmExit = () => {
         // for app
         //
-        // if (!this.props.timerOn) {
-        //     Alert.alert(
-        //         'Are you sure?',
-        //         '',
-        //         [
-        //             {text: 'Yes', onPress: () => this.props.checkExit(true)},
-        //             {
-        //                 text: 'No', 
-        //                 onPress: () => this.props.checkExit(false), 
-        //                 style: 'cancel'
-        //             },
-        //         ],
-        //         {cancelable: true},
-        //     );
-        // } else {
-        //     alert('You should end your work!')
-        // }
-
-        // for web
-        //
         if (!this.props.timerOn) {
-            if (confirm('Are you sure?')) {
-                this.props.checkExit(true)
-            }
+            Alert.alert(
+                'Are you sure?',
+                '',
+                [
+                    {text: 'Yes', onPress: () => this.props.checkExit(true)},
+                    {
+                        text: 'No', 
+                        onPress: () => this.props.checkExit(false), 
+                        style: 'cancel'
+                    },
+                ],
+                {cancelable: true},
+            );
         } else {
             alert('You should end your work!')
         }
+
+        // for web
+        //
+        // if (!this.props.timerOn) {
+        //     if (confirm('Are you sure?')) {
+        //         this.props.checkExit(true)
+        //     }
+        // } else {
+        //     alert('You should end your work!')
+        // }
     }
 
     render() {

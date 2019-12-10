@@ -13,7 +13,6 @@ export default class MapWindow extends Component {
 
     state = {
         seatNumber: this.props.workspaceNumber,
-        avialableSeats: [1, 3, 5, 7] // буду получать
     }
 
     setLocalSeat = (num) => {
@@ -27,7 +26,7 @@ export default class MapWindow extends Component {
         if (seat === null) 
             alert("Chose workspace please!")
         else if (seat > 0 && seat <= 8) {
-            if (this.state.avialableSeats.indexOf(seat) !== -1) {
+            if (this.props.avialableSeats.indexOf(seat) !== -1) {
                 this.props.changeWorkspace(this.state.seatNumber, false)
             } else {
                 alert("You can't chose it")
@@ -73,7 +72,7 @@ export default class MapWindow extends Component {
                     <Map workspaceNumber={this.props.workspaceNumber} 
                         changeWorkspace={this.props.changeWorkspace}
                         setLocalSeat={this.setLocalSeat}
-                        avialableSeats={this.state.avialableSeats}
+                        avialableSeats={this.props.avialableSeats}
                         areParamsSelected={this.props.areParamsSelected}
                         isWorkspaceChosen={this.props.isWorkspaceChosen}
                         seatNumber={this.state.seatNumber}/>

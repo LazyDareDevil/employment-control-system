@@ -4,8 +4,8 @@ const styles = StyleSheet.create({
     topBlock: {
         flex: 1,
         flexDirection: 'row',
-        // justifyContent: 'flex-end',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-end',
+        // justifyContent: 'space-around',
         alignItems: 'center',
         shadowRadius: 1,
         shadowOpacity: 0.1
@@ -35,17 +35,17 @@ const styles = StyleSheet.create({
         fontFamily: 'roboto-light'
     },
 
-    seatInput: {
-        backgroundColor: 'white', 
-        height: '75%', 
-        borderRadius: 8, 
-        width: '20%',
-        maxWidth: 50,
-        justifyContent: 'center',
-        textAlign: 'center',
-        paddingHorizontal: 7,
-        color: 'rgba(10, 61, 179, 1.0)',
-    }
+    // seatInput: {
+    //     backgroundColor: 'white', 
+    //     height: '75%', 
+    //     borderRadius: 8, 
+    //     width: '20%',
+    //     maxWidth: 50,
+    //     justifyContent: 'center',
+    //     textAlign: 'center',
+    //     paddingHorizontal: 7,
+    //     color: 'rgba(10, 61, 179, 1.0)',
+    // }
 })
 
 export default styles

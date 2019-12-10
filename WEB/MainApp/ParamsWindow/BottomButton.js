@@ -7,24 +7,24 @@ export default class BottomButtom extends Component {
     leaveConfirm = () => {
         //for App
         //
-        // Alert.alert(
-        //     'Are you sure?',
-        //     '',
-        //     [
-        //         {text: 'Yes', onPress: () => this.props.leaveButtonPressed()},
-        //         {
-        //             text: 'No',
-        //             style: 'cancel'
-        //         },
-        //     ],
-        //     {cancelable: true},
-        // );
+        Alert.alert(
+            'Are you sure?',
+            '',
+            [
+                {text: 'Yes', onPress: () => this.props.leaveButtonPressed()},
+                {
+                    text: 'No',
+                    style: 'cancel'
+                },
+            ],
+            {cancelable: true},
+        );
 
         // for web
         //
-        if (confirm('Are you sure?')) {
-            this.props.leaveButtonPressed()
-        }
+        // if (confirm('Are you sure?')) {
+        //     this.props.leaveButtonPressed()
+        // }
     }
 
     render() {
