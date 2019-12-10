@@ -22,6 +22,9 @@ urlpatterns = [
     #path('base_auth/', include('rest_framework.urls')),
     path('api/login/', login),
     path('api/logout/', logout),
+    path('api/get_workplaces/', get_workplaces),
+    path('api/take_place/', take_place),
+    path('api/leave_place/', leave_place),
     path('api/v1/app/', include('app.urls')),
     path('', index),
 ]
