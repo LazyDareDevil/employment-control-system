@@ -90,16 +90,16 @@ def get_workplaces(request):
     # поиск свободных мест (параметры пока не используем)
 
     resp = JsonResponse({"amount": 8,
-                         "places": [
-                             {"1": True},
-                             {"2": False},
-                             {"3": True},
-                             {"4": False},
-                             {"5": True},
-                             {"6": False},
-                             {"7": True},
-                             {"8": False}
-                         ]})
+                         "places": {
+                             "1": True,
+                             "2": False,
+                             "3": True,
+                             "4": False,
+                             "5": True,
+                             "6": False,
+                             "7": True,
+                             "8": False
+                         }})
     resp['Access-Control-Allow-Origin'] = '*'
     resp["Access-Control-Allow-Headers"] = '*'
     return resp
