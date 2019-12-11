@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import FooterMenu from './FooterMenu'
-import { Container, Title , Header } from 'native-base';
+import { Container } from 'native-base';
 import WorkspaceParameters from './ParamsWindow/WorkspaceParameters'
 import MapWindow from './MapComponents/MapWindow'
 import Settings from './Settings'
 import MainHeader from './Header/MainHeader';
-import SeatTimer from './Timer/SeatTimer'
 
 
 export default class MainApp extends Component {
@@ -48,7 +47,6 @@ export default class MainApp extends Component {
             fetch(this.props.ngrokServer + 'take_place/', {
                 method: 'POST',
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
@@ -87,7 +85,6 @@ export default class MainApp extends Component {
         fetch(this.props.ngrokServer + 'leave_place/', {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
@@ -98,7 +95,6 @@ export default class MainApp extends Component {
         })
         .then((response) => {
             if (response.status == 200) {
-                alert(this.state.timerTime)
                 alert( "Your time:\n" + this.formatTime(this.state.timerTime))
                 this.setState({ 
                     timerOn: false,
@@ -137,13 +133,11 @@ export default class MainApp extends Component {
             fetch(this.props.ngrokServer + 'get_workplaces/', {
                 method: 'POST',
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({"token": this.props.token}),
             })
             .then((response) => {
-                console.log(response)
                 return response.json()
             })
             .then((responseJson) => {
@@ -151,7 +145,7 @@ export default class MainApp extends Component {
                 let places = responseJson.places
                 let temp_array = []
                 for (let i = 1; i <= amount; i++) {
-                    if (places[i - 1][(i).toString()]) {
+                    if (places[(i).toString()]) {
                         temp_array.push(i)
                     }
                 }
@@ -189,11 +183,6 @@ export default class MainApp extends Component {
 
     setMainWindow = () => {
         if (this.state.window === 'workspace') {
-            // if (this.state.isWorkspaceChosen) 
-            //     return <SeatTimer leaveButtonPressed={this.leaveButtonPressed}
-            //                         timerTime={this.state.timerTime}
-            //                         formatTime={this.formatTime}/>
-            // else return <WorkspaceParameters setParamsSelected={this.setParamsSelected}/>
             return <WorkspaceParameters setParamsSelected={this.setParamsSelected}
                                         chosenParameters={this.state.chosenParameters}
                                         changeChosenParams={this.changeChosenParams}
@@ -213,14 +202,19 @@ export default class MainApp extends Component {
     render() {
         return (
             <Container>
-                {/* <Header transparent style={styles.header}>
-                    <Title style={styles.title}>APP NAME</Title>
-                </Header> */}
-
                 <MainHeader login={this.props.login} workspaceNumber={this.state.workspaceNumber}
                             timerOn={this.state.timerOn} timerTime={this.formatTime(this.state.timerTime)}/>
 
                 {this.setMainWindow()}
+
+                {/* <View style={{position: 'absolute', width: '100%', height: '100%', backgroundColor: 'black',
+                        opacity: 0.3, justifyContent: 'center', alignItems: 'center'}}>
+
+                    <View style={{width: 50, height: 50, backgroundColor: 'red', opacity: 1}}>
+                            
+                    </View>
+
+                </View> */}
 
                 <FooterMenu changeWindow={this.changeWindow} 
                             currentState={this.state.window}

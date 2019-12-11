@@ -24,12 +24,11 @@ export default class App extends Component {
 
     checkData = async (flag, someLogin, somePassword, someServer) => {
         if (flag) {
-            var url = 'http://45d82ed4.ngrok.io/api/'
-            // var url = 'http://' + someServer + '.ngrok.io/api/'
+            // var url = 'http://da6de3b7.ngrok.io/api/'
+            var url = 'http://' + someServer + '.ngrok.io/api/'
             fetch(url + 'login/', {
                 method: 'POST',
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
@@ -38,7 +37,6 @@ export default class App extends Component {
                 }),
             })
             .then((response) => {
-                console.log(response)
                 return response.json()
             })
             .then((responseJson) => {
@@ -70,7 +68,6 @@ export default class App extends Component {
             fetch(this.state.ngrokServer + 'logout/', {
                 method: 'DELETE',
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({"token": this.state.token}),

@@ -1,5 +1,6 @@
 WEB/node_modules/**/*
 WEB/.expo/*
+WEB/.expo-shared/*
 WEB/npm-debug.*
 *.jks
 *.p8
