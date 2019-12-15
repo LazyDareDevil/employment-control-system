@@ -22,7 +22,7 @@ export default class FooterMenu extends Component {
         let firstButtonText = this.props.isWorkspaceChosen ? 'Time' : 'Parameters'
         return(
             <Footer>
-                <FooterTab style={{backgroundColor: 'white', shadowRadius: 1, shadowOpacity: 0.1}}>
+                <FooterTab style={{backgroundColor: 'white'}}>
 
                     <Button vertical onPress={() => changeWindow('workspace')}>
                         <Icon name='tv' style={this.setColor('workspace')} />

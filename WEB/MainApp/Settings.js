@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: 'rgba(39, 171, 227, 1)', 
         height: '15%',
-        marginBottom: '3%',
+        maxHeight: 60,
+        marginBottom: 12,
         width: '70%',
         justifyContent: 'center',
         borderRadius: 8,
@@ -95,9 +96,12 @@ const styles = StyleSheet.create({
     exitButton: {
         backgroundColor: 'rgba(229, 38, 37, 1)', 
         height: '15%',
+        maxHeight: 60,
+        textAlignVertical: 'center',
         width: '70%',
         justifyContent: 'center',
         borderRadius: 100,
-        maxWidth: 250
+        maxWidth: 250,
+        // marginTop: '2%'
     }
 })

@@ -62,8 +62,9 @@ export default class MainApp extends Component {
             .catch((error) => {
                 alert('error: ' + error)
             });
+
+            // this.startTimer()
         } 
-        // this.startTimer()
     }
 
     startTimer = () => {
@@ -102,7 +103,6 @@ export default class MainApp extends Component {
                     timerTime: 0
                 });
                 clearInterval(this.timer);
-
                 this.changeWorkspace(null)
                 this.setParamsSelected(false)
             }
@@ -110,6 +110,7 @@ export default class MainApp extends Component {
         .catch((error) => {
             alert('error: ' + error)
         });
+
         // alert( "Your time:\n" + this.formatTime(this.state.timerTime))
         // this.setState({ 
         //     timerOn: false,
@@ -144,9 +145,9 @@ export default class MainApp extends Component {
                 let amount = responseJson.amount
                 let places = responseJson.places
                 let temp_array = []
-                for (let i = 1; i <= amount; i++) {
-                    if (places[(i).toString()]) {
-                        temp_array.push(i)
+                for (let i = 0; i < amount; i++) {
+                    if (places[i].user_id == 0){
+                        temp_array.push(places[i].id)
                     }
                 }
                 this.setState({
@@ -159,8 +160,8 @@ export default class MainApp extends Component {
                 alert('error: ' + error)
             });
 
-
             // this.setState({
+            //     avialableSeats: [1, 3, 4, 5, 8],
             //     areParamsSelected: true,
             //     window: 'map'
             // })
@@ -206,15 +207,6 @@ export default class MainApp extends Component {
                             timerOn={this.state.timerOn} timerTime={this.formatTime(this.state.timerTime)}/>
 
                 {this.setMainWindow()}
-
-                {/* <View style={{position: 'absolute', width: '100%', height: '100%', backgroundColor: 'black',
-                        opacity: 0.3, justifyContent: 'center', alignItems: 'center'}}>
-
-                    <View style={{width: 50, height: 50, backgroundColor: 'red', opacity: 1}}>
-                            
-                    </View>
-
-                </View> */}
 
                 <FooterMenu changeWindow={this.changeWindow} 
                             currentState={this.state.window}

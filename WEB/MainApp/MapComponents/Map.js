@@ -35,15 +35,17 @@ export default class Map extends Component {
     * generator(num) {
         let coordsX =[]
         let coordsY = []
-        if (num === 1 || num === 3) {
+        if (num === 1 || num === 3 || num == 2) {
             coordsY = [170, 135, 135, 65, 65, 55]
-            coordsX = num === 1 ? [30, 30, 75, 75, 30, 30] : [30, 30, 75, 75, 170, 170]
-        } else if (num === 5) {
-            coordsX = [30, 30, 75, 75, 90]
+            if (num === 1) coordsX = [30, 30, 75, 75, 30, 30]
+            else if (num === 2) coordsX = [30, 30, 75, 75, 100, 100]
+            else if (num === 3) coordsX = [30, 30, 75, 75, 170, 170]
+        } else if (num === 5 || num === 4) {
+            coordsX = num === 5 ? [30, 30, 75, 75, 90] : [30, 30, 75, 75, 60]
             coordsY = [170, 135, 135, 100, 100]
-        } else if (num === 7) {
-            coordsX = [30, 30, 100, 100]
-            coordsY = [170, 135, 135, 145]
+        } else if (num === 7 || num === 8 || num === 6) {
+            coordsX = num === 7 ? [30, 30, 100, 100] : [30, 30, 170, 170]
+            coordsY = num === 6 ? [170, 135, 135, 125] : [170, 135, 135, 145]
         }
         for (let i = 0; i < coordsX.length - 1; ++i) {
             yield React.createElement(

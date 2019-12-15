@@ -17,7 +17,7 @@ export default class WorkspaceParameters extends Component {
         return(
             <Container style={{flex: 7, backgroundColor: 'rgba(211, 211, 211, 0.4)'}}>
                 <View style={styles.edgeBlock}>
-                    <Button full disabled style={{backgroundColor: 'rgba(39, 171, 227, 1)', height: '75%'}}>
+                    <Button full disabled style={styles.topButton}>
                         <Text style={styles.edgeBlockText}>
                             {isWorkspaceChosen ? 'Chosen parameters' : 'Choose parameters'}
                         </Text>

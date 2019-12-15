@@ -24,7 +24,6 @@ export default class App extends Component {
 
     checkData = async (flag, someLogin, somePassword, someServer) => {
         if (flag) {
-            // var url = 'http://da6de3b7.ngrok.io/api/'
             var url = 'http://' + someServer + '.ngrok.io/api/'
             fetch(url + 'login/', {
                 method: 'POST',
@@ -41,7 +40,6 @@ export default class App extends Component {
             })
             .then((responseJson) => {
                 let token = responseJson.token
-
                 if (token != null) {
                     this.setState({ 
                         renderView: 1,

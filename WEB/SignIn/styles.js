@@ -44,15 +44,16 @@ const styles = StyleSheet.create({
     },
     
     form: {
-        // height: '30%',
+        height: '40%',
         flexDirection: 'column',
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
     },
   
     field: {
         paddingLeft: 20,
         minHeight: 50,
-        height: '12%',
+        height: '30%',
+        maxHeight: 60,
         backgroundColor: 'white',
         borderRadius: 5,
         shadowRadius: 10,
@@ -69,6 +70,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(229, 38, 37, 1)',
         justifyContent: 'center',
         minHeight: 50,
+        maxHeight: 50,
+        alignContent: 'center',
         height: '12%',
         width: '35%',
         borderRadius: 100,
